@@ -1,0 +1,13 @@
+name: Keep Render Awake
+on:
+  schedule:
+    # Executa a cada 14 minutos (minutos ilimitados em público)
+    - cron: "*/14 * * * *"
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render services
+        run: |
+          curl -fsS https://canchacallback.onrender.com/healthz  || true
+          curl -fsS https://cancha-back.onrender.com/swagger/    || true
