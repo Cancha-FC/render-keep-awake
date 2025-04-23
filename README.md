@@ -63,23 +63,6 @@ jobs:
 
 ---
 
-## 🔐 Segurança
-
-Nenhuma credencial é exigida — URLs são **públicas** e seguras.
-
----
-
-## 🎨 Paleta CtrlLabs
-
-| Cor | Código |
-|------|--------|
-| Azul Primário | `#0d6efd` |
-| Cinza Neutro  | `#6c757d` |
-| Preto         | `#000000` |
-| Branco        | `#ffffff` |
-
----
-
 ## 📄 Licença
 
 MIT © 2025 Leonardo Miranda / CtrlLabs
