@@ -2,9 +2,9 @@
 
 <h1 style="color:#0d6efd">⚙️ render-keep-awake</h1>
 
-<img src="https://img.shields.io/badge/Status-Online-success?style=for-the-badge&color=0d6efd" />
+[![Keep Awake](https://github.com/Cancha-FC/render-keep-awake/actions/workflows/keep-awake.yml/badge.svg)](https://github.com/Cancha-FC/render-keep-awake/actions/workflows/keep-awake.yml)
 <img src="https://img.shields.io/badge/Auto--Ping-Every%2014%20min-6c757d?style=for-the-badge" />
-<img src="https://img.shields.io/github/license/leonardomiranda132/render-keep-awake?style=for-the-badge&color=000000" />
+<img src="https://img.shields.io/github/license/Cancha-FC/render-keep-awake?style=for-the-badge&color=000000" />
 
 </div>
 
