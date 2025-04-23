@@ -1,20 +1,35 @@
-render-keep-awake
+<div align="center">
 
-Este repositório público existe exclusivamente para manter dois serviços hospedados na Render ativos 24 × 7, evitando que entrem em suspensão automática após 15 min sem tráfego.
+<h1 style="color:#0d6efd">⚙️ render-keep-awake</h1>
 
-Serviços pingados
+<img src="https://img.shields.io/badge/Status-Online-success?style=for-the-badge&color=0d6efd" />
+<img src="https://img.shields.io/badge/Auto--Ping-Every%2014%20min-6c757d?style=for-the-badge" />
+<img src="https://img.shields.io/github/license/leonardomiranda132/render-keep-awake?style=for-the-badge&color=000000" />
 
-URL	Descrição
-https://canchacallback.onrender.com/healthz	FastAPI Callback (Bling OAuth)
-https://cancha-back.onrender.com/swagger/	Backend Cancha (Swagger UI)
+</div>
 
+---
 
+> Repositório **público** criado exclusivamente para manter dois serviços Render ativos 24 × 7, evitando que entrem em suspensão após 15 min de inatividade.
 
-Como funciona
-	•	O workflow GitHub Actions (.github/workflows/keep-awake.yml) é executado a cada 14 min usando runners da própria plataforma (minutos ilimitados para repositórios públicos).
-	•	Faz simples requisições curl às URLs acima.
-	•	Qualquer falha (curl ≠ 0) é ignorada (|| true) para não quebrar o job.
+---
 
+## 🌐 Serviços Pingados
+
+| URL | Descrição |
+|------|------------|
+| [`/healthz`](https://canchacallback.onrender.com/healthz) | ⚡️ FastAPI Callback (Bling OAuth) |
+| [`/swagger/`](https://cancha-back.onrender.com/swagger/) | 📘 Backend Cancha (Swagger UI) |
+
+---
+
+## 🛠️ Como funciona
+
+* O GitHub Actions executa o workflow a cada **14 minutos**.
+* Requisições `curl` são feitas para as URLs acima.
+* Falhas não quebram o job (`|| true`).
+
+```yaml
 name: Keep Render Awake
 on:
   schedule:
@@ -27,22 +42,45 @@ jobs:
         run: |
           curl -fsS https://canchacallback.onrender.com/healthz  || true
           curl -fsS https://cancha-back.onrender.com/swagger/    || true
+```
 
-Alterando ou adicionando URLs
-	1.	Edite o bloco run: do arquivo keep-awake.yml.
-Adicione/remove linhas curl -fsS <URL> || true conforme necessário.
-	2.	Commit e envia (push) para main — o cron usará a nova lista automaticamente.
+---
 
-Frequência
-	•	14 min foi escolhido para ficar logo abaixo do limite de 15 min da Render e, ao mesmo tempo, consumir ≈ 3 000 min/mês (a cota do plano Pro, caso algum dia o repo seja tornado privado).
-	•	Para mudar, ajuste a expressão cron:. Ex.:
-	•	*/10 * * * * → a cada 10 min
-	•	*/20 * * * * → a cada 20 min
+## ✏️ Alterar ou adicionar URLs
 
-Segurança
+1. Edite o arquivo `.github/workflows/keep-awake.yml`
+2. Adicione/remova linhas `curl -fsS <URL> || true` no bloco `run:`
+3. Commit → Push → o cron será atualizado automaticamente
 
-Nenhum segredo é necessário — todas as URLs são públicas.
+---
 
-Licença
+## ⏱️ Frequência
+
+* `*/14` mantém o serviço ativo antes do timeout da Render.
+* Quer alterar?
+  - `*/10 * * * *` → a cada 10 minutos
+  - `*/20 * * * *` → a cada 20 minutos
+
+---
+
+## 🔐 Segurança
+
+Nenhuma credencial é exigida — URLs são **públicas** e seguras.
+
+---
+
+## 🎨 Paleta CtrlLabs
+
+| Cor | Código |
+|------|--------|
+| Azul Primário | `#0d6efd` |
+| Cinza Neutro  | `#6c757d` |
+| Preto         | `#000000` |
+| Branco        | `#ffffff` |
+
+---
+
+## 📄 Licença
 
 MIT © 2025 Leonardo Miranda / CtrlLabs
+
