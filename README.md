@@ -79,7 +79,7 @@ A cada 20 minutos	*/20 * * * *
 🧠 Autor
 
 Leonardo Miranda – CtrlLabs
-📧 leonardo@ctrllabs.com.br
+📧 leonardomirandasjn@gmail.com
 🌐 ctrlabs.com.br
 
 ⸻
@@ -93,5 +93,3 @@ MIT © 2025 CtrlLabs
 
 
 ---
-
-Se quiser, posso criar esse `README.md` direto no repositório ou gerar como arquivo `.md` aqui para colar no projeto. Deseja isso?
