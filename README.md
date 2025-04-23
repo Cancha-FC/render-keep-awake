@@ -1,33 +1,41 @@
+Claro! Aqui está uma versão estilizada, moderna e totalmente compatível com o GitHub para seu README.md do projeto render-keep-awake — com visual limpo, ícones, tabelas organizadas, links funcionais e cores baseadas na sua identidade (azul, cinza, branco, preto):
+
+⸻
+
+
+
 <div align="center">
 
-<h1 style="color:#0d6efd">⚙️ render-keep-awake</h1>
+# ⚙️ render-keep-awake
 
 [![Keep Awake](https://github.com/Cancha-FC/render-keep-awake/actions/workflows/keep-awake.yml/badge.svg)](https://github.com/Cancha-FC/render-keep-awake/actions/workflows/keep-awake.yml)
-<img src="https://img.shields.io/badge/Auto--Ping-Every%2014%20min-6c757d?style=for-the-badge" />
-<img src="https://img.shields.io/github/license/Cancha-FC/render-keep-awake?style=for-the-badge&color=000000" />
+![Auto Ping](https://img.shields.io/badge/Auto--Ping-Every%2014%20min-6c757d?style=flat-square)
+![License](https://img.shields.io/github/license/Cancha-FC/render-keep-awake?style=flat-square)
+
+<p align="center">
+Repositório <strong>público</strong> criado para manter serviços <a href="https://render.com">Render</a> ativos 24 × 7, evitando que entrem em modo “sleep” por inatividade.
+</p>
 
 </div>
 
 ---
 
-> Repositório **público** criado exclusivamente para manter dois serviços Render ativos 24 × 7, evitando que entrem em suspensão após 15 min de inatividade.
+## 🌐 URLs Pingadas
 
----
-
-## 🌐 Serviços Pingados
-
-| URL | Descrição |
-|------|------------|
-| [`/healthz`](https://canchacallback.onrender.com/healthz) | ⚡️ FastAPI Callback (Bling OAuth) |
-| [`/swagger/`](https://cancha-back.onrender.com/swagger/) | 📘 Backend Cancha (Swagger UI) |
+| Endereço | Descrição |
+|----------|-----------|
+| [`/healthz`](https://canchacallback.onrender.com/healthz) | ⚡ FastAPI Callback (Bling OAuth) |
+| [`/swagger`](https://cancha-back.onrender.com/swagger/)  | 📘 Backend Cancha – Documentação Swagger |
 
 ---
 
 ## 🛠️ Como funciona
 
-* O GitHub Actions executa o workflow a cada **14 minutos**.
-* Requisições `curl` são feitas para as URLs acima.
-* Falhas não quebram o job (`|| true`).
+> Este repositório usa **GitHub Actions** para rodar um workflow a cada 14 minutos:
+
+- Faz **pings com `curl`** para manter os serviços ativos
+- Falhas são ignoradas (`|| true`) para não quebrar o job
+- Utiliza **runners gratuitos** (minutos ilimitados para repositórios públicos)
 
 ```yaml
 name: Keep Render Awake
@@ -42,28 +50,48 @@ jobs:
         run: |
           curl -fsS https://canchacallback.onrender.com/healthz  || true
           curl -fsS https://cancha-back.onrender.com/swagger/    || true
-```
+
+
+
+⸻
+
+✏️ Como editar ou adicionar novas URLs
+	1.	Acesse o arquivo: .github/workflows/keep-awake.yml
+	2.	Adicione/remova linhas curl -fsS <URL> || true
+	3.	Salve, commit e dê push — o cron será atualizado automaticamente
+
+⸻
+
+⏱️ Frequência
+
+A expressão */14 * * * * define execução a cada 14 minutos, abaixo do limite de suspensão da Render (15 min).
+
+Exemplos de outros intervalos:
+
+Intervalo desejado	Cron equivalente
+A cada 10 minutos	*/10 * * * *
+A cada 20 minutos	*/20 * * * *
+
+
+
+⸻
+
+🧠 Autor
+
+Leonardo Miranda – CtrlLabs
+📧 leonardo@ctrllabs.com.br
+🌐 ctrlabs.com.br
+
+⸻
+
+📄 Licença
+
+MIT © 2025 CtrlLabs
+
+⸻
+
+
 
 ---
 
-## ✏️ Alterar ou adicionar URLs
-
-1. Edite o arquivo `.github/workflows/keep-awake.yml`
-2. Adicione/remova linhas `curl -fsS <URL> || true` no bloco `run:`
-3. Commit → Push → o cron será atualizado automaticamente
-
----
-
-## ⏱️ Frequência
-
-* `*/14` mantém o serviço ativo antes do timeout da Render.
-* Quer alterar?
-  - `*/10 * * * *` → a cada 10 minutos
-  - `*/20 * * * *` → a cada 20 minutos
-
----
-
-## 📄 Licença
-
-MIT © 2025 Leonardo Miranda / CtrlLabs
-
+Se quiser, posso criar esse `README.md` direto no repositório ou gerar como arquivo `.md` aqui para colar no projeto. Deseja isso?
